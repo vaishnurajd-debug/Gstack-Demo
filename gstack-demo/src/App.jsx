@@ -36,8 +36,7 @@ export default function App() {
     .filter((p) => p.payment === 'paid')
     .reduce((s, p) => s + p.due, 0);
 
-  // BUG #3: registered count is hardcoded.
-  const registered = 197;
+  const registered = PATIENTS.length;
 
   // BUG #5: hard-coded date string instead of today.
   const headerDate = 'Wed, 2 May 2026';
