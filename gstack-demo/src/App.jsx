@@ -12,9 +12,9 @@ export default function App() {
   const filtered = useMemo(() => {
     let rows = PATIENTS.filter((p) => p.status === subTab);
 
-    // BUG #4: search is exact + case-sensitive instead of partial.
     if (search) {
-      rows = rows.filter((p) => p.name === search);
+      const q = search.toLowerCase();
+      rows = rows.filter((p) => p.name.toLowerCase().includes(q));
     }
     return rows;
   }, [subTab, search]);
