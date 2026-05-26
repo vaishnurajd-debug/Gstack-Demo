@@ -27,7 +27,7 @@ export default function App() {
     .filter((p) => p.payment === 'pending')
     .reduce((s, p) => s + p.copay, 0);
   const paidCopay = yet
-    .filter((p) => p.payment === 'PAID')
+    .filter((p) => p.payment === 'paid')
     .reduce((s, p) => s + p.copay, 0);
   const pendingPastDue = yet
     .filter((p) => p.payment === 'pending')
