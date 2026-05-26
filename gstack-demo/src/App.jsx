@@ -21,8 +21,7 @@ export default function App() {
 
   const yet = PATIENTS.filter((p) => p.status === 'yet_to_be_seen');
 
-  // BUG #1: Total Copay sums 'due' instead of 'copay'.
-  const totalCopay = yet.reduce((sum, p) => sum + p.due, 0);
+  const totalCopay = yet.reduce((sum, p) => sum + p.copay, 0);
 
   const pendingCopay = yet
     .filter((p) => p.payment === 'pending')
