@@ -1,0 +1,199 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+  font-size: 13px;
+}
+
+.top-bar {
+  background: #fff;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.brand { display: flex; align-items: center; gap: 8px; }
+.logo { color: #2bbbad; font-weight: 700; font-size: 18px; }
+.logo-health { color: #555; font-weight: 700; font-size: 18px; }
+.brand-name { color: #2bbbad; margin-left: 12px; font-weight: 600; }
+
+.top-nav { display: flex; gap: 18px; color: #555; }
+.top-nav span { cursor: pointer; }
+
+.tabs {
+  background: #2bbbad;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tab {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 3px solid transparent;
+}
+
+.tab.active {
+  background: #1f9d92;
+  border-bottom-color: #fff;
+  font-weight: 600;
+}
+
+.tab-meta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+
+#search {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 3px;
+  width: 260px;
+  font-size: 12px;
+}
+
+.content {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+.patient-panel {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.sub-tabs {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 8px;
+}
+
+.sub-tab {
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: #777;
+  border-bottom: 3px solid transparent;
+}
+
+.sub-tab.active {
+  color: #2bbbad;
+  border-bottom-color: #2bbbad;
+}
+
+.last-updated {
+  margin-left: auto;
+  color: #999;
+  font-size: 11px;
+  padding-right: 12px;
+}
+
+.provider-group {
+  padding: 8px 16px;
+  background: #f9fafb;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.patients-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patients-table th {
+  background: #fafafa;
+  padding: 8px 6px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.patients-table td {
+  padding: 10px 6px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 12px;
+}
+
+.patients-table tbody tr:hover {
+  background: #fafcff;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4caf50;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  text-align: center;
+  line-height: 18px;
+  color: #999;
+}
+
+.icon.active { color: #2bbbad; }
+
+.empty {
+  text-align: center;
+  padding: 30px;
+  color: #999;
+}
+
+.stats-panel {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-block {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 12px 14px;
+  text-align: right;
+}
+
+.stat-block.green {
+  background: #f6fbf7;
+  border-color: #c8e6c9;
+}
+
+.stat-label { color: #777; font-size: 12px; }
+.stat-sub { color: #aaa; font-size: 10px; }
+
+.stat-value {
+  color: #4caf50;
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.stat-value.blue { color: #2bbbad; }
+.stat-value.red { color: #e53935; }
