@@ -10,9 +10,7 @@ export default function App() {
   const [search, setSearch] = useState('');
 
   const filtered = useMemo(() => {
-    // BUG #2: CHECKED-IN tab still shows yet_to_be_seen rows.
-    const statusKey = subTab === 'checked_in' ? 'yet_to_be_seen' : subTab;
-    let rows = PATIENTS.filter((p) => p.status === statusKey);
+    let rows = PATIENTS.filter((p) => p.status === subTab);
 
     // BUG #4: search is exact + case-sensitive instead of partial.
     if (search) {
