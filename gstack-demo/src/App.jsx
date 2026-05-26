@@ -38,8 +38,12 @@ export default function App() {
 
   const registered = PATIENTS.length;
 
-  // BUG #5: hard-coded date string instead of today.
-  const headerDate = 'Wed, 2 May 2026';
+  const headerDate = new Date().toLocaleDateString('en-US', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
 
   return (
     <>
