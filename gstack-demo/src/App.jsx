@@ -92,7 +92,12 @@ export default function App() {
       </nav>
 
       <main className="content">
-        <section className="patient-panel">
+        {activeTab !== 'today' && (
+          <section className="patient-panel" style={{display:'flex',alignItems:'center',justifyContent:'center',minHeight:'200px',color:'#999',fontSize:'15px'}}>
+            {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} module — coming soon.
+          </section>
+        )}
+        {activeTab === 'today' && <section className="patient-panel">
           <div className="sub-tabs">
             {[
               ['yet_to_be_seen', 'YET TO BE SEEN'],
@@ -158,7 +163,7 @@ export default function App() {
               )}
             </tbody>
           </table>
-        </section>
+        </section>}
 
         <aside className="stats-panel">
           <div className="stat-block green">
