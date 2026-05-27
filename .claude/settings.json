@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node c:/gstack-qa-demo/.gstack/generate-dashboard.js 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

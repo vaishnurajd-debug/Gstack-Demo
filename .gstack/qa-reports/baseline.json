@@ -1,0 +1,16 @@
+{
+  "date": "2026-05-26",
+  "url": "http://localhost:3001",
+  "healthScore": 97,
+  "issues": [
+    {"id": "ISSUE-001", "title": "CHECKED-IN tab shows wrong patients", "severity": "high", "category": "functional", "status": "fixed"},
+    {"id": "ISSUE-002", "title": "Total Copay shows wrong amount", "severity": "high", "category": "functional", "status": "fixed"},
+    {"id": "ISSUE-003", "title": "Search requires exact case-sensitive match", "severity": "high", "category": "functional", "status": "fixed"},
+    {"id": "ISSUE-004", "title": "Patients Registered count was hardcoded", "severity": "medium", "category": "content", "status": "fixed"},
+    {"id": "ISSUE-005", "title": "Header date was hardcoded", "severity": "medium", "category": "content", "status": "fixed"},
+    {"id": "ISSUE-006", "title": "Last updated by — wrong preposition", "severity": "low", "category": "content", "status": "deferred"},
+    {"id": "ISSUE-007", "title": "Status dot always green", "severity": "low", "category": "accessibility", "status": "deferred"},
+    {"id": "ISSUE-008", "title": "Paid Copay shows $0.00 due to uppercase PAID filter", "severity": "high", "category": "functional", "status": "fixed"}
+  ],
+  "categoryScores": {"console": 100, "links": 100, "visual": 95, "functional": 100, "ux": 100, "performance": 100, "accessibility": 85}
+}

@@ -3,3 +3,5 @@ dist/
 .vite/
 *.log
 .gstack/qa-reports/screenshots/
+.gstack/browse-audit.jsonl
+.gstack/browse-network.log

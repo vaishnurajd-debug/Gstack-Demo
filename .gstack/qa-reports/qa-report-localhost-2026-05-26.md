@@ -6,7 +6,7 @@
 | **URL** | http://localhost:3001 |
 | **Branch** | main |
 | **Commit (baseline)** | de90a85 (2026-05-26) |
-| **Commit (final)** | e5a4d22 (2026-05-26) |
+| **Commit (final)** | 2c12fe8 (2026-05-26) |
 | **PR** | — |
 | **Tier** | Standard |
 | **Scope** | Full app (dashboard module) |
@@ -16,7 +16,9 @@
 | **Framework** | React 18 + Vite 5 |
 | **Index** | [All QA runs](./index.md) |
 
-## Health Score: 97/100
+## Health Score: 97/100 (Run 1) → 87/100 (Run 2 baseline) → 97/100 (Run 2 final)
+
+> **Run 2 (2026-05-26 re-run with browse):** Found ISSUE-008 (Paid Copay regression). Fixed. Score returned to 97.
 
 | Category | Before | After | Delta |
 |----------|-------:|------:|------:|
@@ -153,6 +155,30 @@ No JavaScript exceptions, no failed network requests, no deprecation warnings ob
 
 ---
 
+### ISSUE-008: Paid Copay shows $0.00 (regression from "tighten paid copay matcher" refactor) — FIXED ✅
+
+| Field | Value |
+|-------|-------|
+| **Severity** | high |
+| **Category** | functional |
+| **URL** | http://localhost:3001|
+| **Component** | `gstack-demo/src/App.jsx:30` |
+| **Fix commit** | 2c12fe8 |
+
+**Description:** After the "refactor: tighten paid copay matcher" commit, Paid Copay showed $0.00. Root cause: filter used `p.payment === 'PAID'` (uppercase) but all patient data stores lowercase `'paid'`. Saif K&Yu ($30) and Santenc Testpatient ($35) both went uncounted.
+
+**Repro:**
+1. Navigate to http://localhost:3001
+2. Note Saif K&Yu and Santenc Testpatient both show payment = "paid" in the table
+3. Observe "Paid Copay" in the right sidebar: **$0.00**
+
+**Expected:** $65.00 (Saif $30 + Santenc $35)  
+**Fix:** `p.payment === 'PAID'` → `p.payment === 'paid'`  
+**Before screenshot:** [issue-001-before.png](screenshots/issue-001-before.png)  
+**After screenshot:** [issue-001-after.png](screenshots/issue-001-after.png)
+
+---
+
 ### ISSUE-006: "Last updated by 12:56:22 PM" — wrong preposition (DEFERRED)
 
 | Field | Value |
@@ -194,6 +220,7 @@ No JavaScript exceptions, no failed network requests, no deprecation warnings ob
 | ISSUE-005 | verified | e5a4d22 | gstack-demo/src/App.jsx |
 | ISSUE-006 | deferred | — | — |
 | ISSUE-007 | deferred | — | — |
+| ISSUE-008 | verified | 2c12fe8 | gstack-demo/src/App.jsx |
 
 ### Before / After Evidence (textual — screenshot capture unavailable on Windows without `browse` binary)
 
@@ -254,7 +281,7 @@ No JavaScript exceptions, no failed network requests, no deprecation warnings ob
 | Fixes applied | 5 (verified: 5, best-effort: 0, reverted: 0) |
 | Deferred | 2 (both low severity) |
 
-**PR Summary:** "QA found 7 issues, fixed 5, health score 85 → 97."
+**PR Summary:** "QA found 8 issues total (7 prior + 1 new regression), fixed 6, health score 85 → 97."
 
 **Recommended:** ship. Two deferred low-severity issues can be filed as follow-up TODOs.
 
@@ -262,6 +289,32 @@ No JavaScript exceptions, no failed network requests, no deprecation warnings ob
 
 ## Notes for Team Demo
 
-- This run was executed without the gstack `browse` binary (Windows + no WSL bash). Screenshots are textual; the bug-finding and fix-loop logic match a real `/qa` invocation.
-- Git history is the primary artifact: 5 atomic `fix(qa): ISSUE-NNN — ...` commits on top of the baseline.
-- The dashboard module is at [gstack-demo/](../../gstack-demo/), runnable with `cd gstack-demo && npm run dev` (auto-opens browser).
+### How this report was produced
+
+This report combines two runs:
+
+| Run | Issues | How it ran |
+|---|---|---|
+| **Run 1 (pre-install bootstrap)** | ISSUE-001 → ISSUE-005 | GStack methodology followed manually — gstack was not yet installed on this Windows machine. Fixes are real code changes with atomic commits, but no `browse.exe` exploration. Screenshots are textual descriptions. |
+| **Run 2 (real GStack)** | ISSUE-006 (Paid Copay) | GStack v1.45.0.0 installed via `./setup`, `browse.exe` built (98 MB), `/qa` slash command invoked in Claude Code. Real headless-Chrome exploration, real screenshots in `screenshots/`, atomic fix commit `2c12fe8`. |
+
+### GStack install state on this machine
+
+- Path: `C:\Users\Vaishnuraj\.claude\skills\gstack\` (v1.45.0.0)
+- `browse.exe`: 98 MB, reports `Status: healthy`
+- Skills registered: 53 (including `/qa`, `/qa-only`, `/review`, `/ship`, `/investigate`)
+- Bun cache: `C:\bun-cache` (relocated outside OneDrive to avoid file-lock issues)
+
+### Reproducing the demo
+
+1. Plant a bug (or wait for a real one).
+2. Open a fresh Claude Code conversation.
+3. Type `/qa http://localhost:3001`.
+4. Watch GStack: spin up browse, explore the UI, find the bug, fix it with an atomic commit, re-verify, generate a new dated qa-report.
+5. `git push` (or `/ship`) to send the fix to GitHub.
+
+### Artifacts
+
+- Dashboard module: [gstack-demo/](../../gstack-demo/) — `cd gstack-demo && npm run dev` (port 3001)
+- Git history: `git log --oneline` shows 6 atomic `fix(qa): ISSUE-NNN — …` commits on top of the baseline
+- GitHub: https://github.com/vaishnurajd-debug/Gstack-Demo
