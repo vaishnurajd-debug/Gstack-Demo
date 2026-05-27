@@ -57,7 +57,7 @@ export default function App() {
           <span>iPad ID &amp; Key</span>
           <span>Support</span>
           <span className="office">🏠 Home Office</span>
-          <span className="user">👤 Anbu</span>
+          <span className="user">👤 Vaishnu</span>
         </nav>
       </header>
 
