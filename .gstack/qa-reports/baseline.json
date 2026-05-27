@@ -1,16 +1,27 @@
 {
-  "date": "2026-05-26",
+  "date": "2026-05-27",
   "url": "http://localhost:3001",
-  "healthScore": 97,
+  "healthScore": 99,
+  "categoryScores": {
+    "console": 100,
+    "links": 100,
+    "visual": 97,
+    "functional": 100,
+    "ux": 97,
+    "performance": 100,
+    "content": 97,
+    "accessibility": 97
+  },
   "issues": [
-    {"id": "ISSUE-001", "title": "CHECKED-IN tab shows wrong patients", "severity": "high", "category": "functional", "status": "fixed"},
-    {"id": "ISSUE-002", "title": "Total Copay shows wrong amount", "severity": "high", "category": "functional", "status": "fixed"},
-    {"id": "ISSUE-003", "title": "Search requires exact case-sensitive match", "severity": "high", "category": "functional", "status": "fixed"},
-    {"id": "ISSUE-004", "title": "Patients Registered count was hardcoded", "severity": "medium", "category": "content", "status": "fixed"},
-    {"id": "ISSUE-005", "title": "Header date was hardcoded", "severity": "medium", "category": "content", "status": "fixed"},
-    {"id": "ISSUE-006", "title": "Last updated by — wrong preposition", "severity": "low", "category": "content", "status": "deferred"},
-    {"id": "ISSUE-007", "title": "Status dot always green", "severity": "low", "category": "accessibility", "status": "deferred"},
-    {"id": "ISSUE-008", "title": "Paid Copay shows $0.00 due to uppercase PAID filter", "severity": "high", "category": "functional", "status": "fixed"}
-  ],
-  "categoryScores": {"console": 100, "links": 100, "visual": 95, "functional": 100, "ux": 100, "performance": 100, "accessibility": 85}
+    { "id": "ISSUE-001", "title": "CHECKED-IN tab shows YET-TO-BE-SEEN patients", "severity": "high", "category": "functional", "status": "fixed" },
+    { "id": "ISSUE-002", "title": "Total Copay shows $20 instead of $195", "severity": "high", "category": "functional", "status": "fixed" },
+    { "id": "ISSUE-003", "title": "Search requires exact case-sensitive match", "severity": "high", "category": "functional", "status": "fixed" },
+    { "id": "ISSUE-004", "title": "Patients Registered count is hardcoded", "severity": "medium", "category": "content", "status": "fixed" },
+    { "id": "ISSUE-005", "title": "Header date hardcoded to Wed, 2 May 2026", "severity": "medium", "category": "content", "status": "fixed" },
+    { "id": "ISSUE-006", "title": "Last updated by (wrong preposition, static timestamp)", "severity": "low", "category": "content", "status": "deferred" },
+    { "id": "ISSUE-007", "title": "Status dot always green regardless of patient state", "severity": "low", "category": "accessibility", "status": "deferred" },
+    { "id": "ISSUE-008", "title": "Paid Copay shows $0.00 (PAID uppercase regression)", "severity": "high", "category": "functional", "status": "fixed" },
+    { "id": "ISSUE-009", "title": "Nav tabs show patient table regardless of active tab", "severity": "medium", "category": "functional", "status": "fixed" },
+    { "id": "ISSUE-010", "title": "Mobile nav tabs overflow with no scroll", "severity": "medium", "category": "ux", "status": "fixed" }
+  ]
 }
