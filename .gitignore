@@ -5,3 +5,5 @@ dist/
 .gstack/qa-reports/screenshots/
 .gstack/browse-audit.jsonl
 .gstack/browse-network.log
+.gstack/browse.json
+.claude/settings.local.json
