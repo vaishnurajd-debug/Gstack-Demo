@@ -1,7 +1,7 @@
 {
   "date": "2026-05-27",
   "url": "http://localhost:3001",
-  "healthScore": 99,
+  "healthScore": 98,
   "categoryScores": {
     "console": 100,
     "links": 100,
@@ -9,7 +9,7 @@
     "functional": 100,
     "ux": 97,
     "performance": 100,
-    "content": 97,
+    "content": 94,
     "accessibility": 97
   },
   "issues": [
@@ -22,6 +22,7 @@
     { "id": "ISSUE-007", "title": "Status dot always green regardless of patient state", "severity": "low", "category": "accessibility", "status": "deferred" },
     { "id": "ISSUE-008", "title": "Paid Copay shows $0.00 (PAID uppercase regression)", "severity": "high", "category": "functional", "status": "fixed" },
     { "id": "ISSUE-009", "title": "Nav tabs show patient table regardless of active tab", "severity": "medium", "category": "functional", "status": "fixed" },
-    { "id": "ISSUE-010", "title": "Mobile nav tabs overflow with no scroll", "severity": "medium", "category": "ux", "status": "fixed" }
+    { "id": "ISSUE-010", "title": "Mobile nav tabs overflow with no scroll", "severity": "medium", "category": "ux", "status": "fixed" },
+    { "id": "ISSUE-011", "title": "Coming-soon placeholder uses wrong module names for YosiChat and On Demand tabs", "severity": "low", "category": "content", "status": "deferred" }
   ]
 }
