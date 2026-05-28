@@ -45,6 +45,17 @@ export default function App() {
     year: 'numeric',
   });
 
+  const TABS = [
+    ['today', 'Today Patients'],
+    ['payment', 'Payment'],
+    ['referrals', 'Referrals'],
+    ['surveys', 'Surveys'],
+    ['users', 'Users'],
+    ['reports', 'Reports'],
+    ['ondemand', 'On Demand'],
+    ['chat', 'YosiChat'],
+  ];
+
   return (
     <>
       <header className="top-bar">
@@ -62,16 +73,7 @@ export default function App() {
       </header>
 
       <nav className="tabs">
-        {[
-          ['today', 'Today Patients'],
-          ['payment', 'Payment'],
-          ['referrals', 'Referrals'],
-          ['surveys', 'Surveys'],
-          ['users', 'Users'],
-          ['reports', 'Reports'],
-          ['ondemand', 'On Demand'],
-          ['chat', 'YosiChat'],
-        ].map(([key, label]) => (
+        {TABS.map(([key, label]) => (
           <button
             key={key}
             className={`tab ${activeTab === key ? 'active' : ''}`}
@@ -94,7 +96,7 @@ export default function App() {
       <main className="content">
         {activeTab !== 'today' && (
           <section className="patient-panel" style={{display:'flex',alignItems:'center',justifyContent:'center',minHeight:'200px',color:'#999',fontSize:'15px'}}>
-            {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} module — coming soon.
+            {TABS.find(([k]) => k === activeTab)?.[1]} module — coming soon.
           </section>
         )}
         {activeTab === 'today' && <section className="patient-panel">
