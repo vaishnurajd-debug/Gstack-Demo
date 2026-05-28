@@ -1,16 +1,16 @@
 {
-  "date": "2026-05-27",
-  "url": "http://localhost:3001",
-  "healthScore": 98,
+  "date": "2026-05-28",
+  "url": "http://localhost:5173",
+  "healthScore": 100,
   "categoryScores": {
     "console": 100,
     "links": 100,
-    "visual": 97,
+    "visual": 100,
     "functional": 100,
-    "ux": 97,
+    "ux": 100,
     "performance": 100,
-    "content": 94,
-    "accessibility": 97
+    "content": 100,
+    "accessibility": 100
   },
   "issues": [
     { "id": "ISSUE-001", "title": "CHECKED-IN tab shows YET-TO-BE-SEEN patients", "severity": "high", "category": "functional", "status": "fixed" },
@@ -23,6 +23,7 @@
     { "id": "ISSUE-008", "title": "Paid Copay shows $0.00 (PAID uppercase regression)", "severity": "high", "category": "functional", "status": "fixed" },
     { "id": "ISSUE-009", "title": "Nav tabs show patient table regardless of active tab", "severity": "medium", "category": "functional", "status": "fixed" },
     { "id": "ISSUE-010", "title": "Mobile nav tabs overflow with no scroll", "severity": "medium", "category": "ux", "status": "fixed" },
-    { "id": "ISSUE-011", "title": "Coming-soon placeholder uses wrong module names for YosiChat and On Demand tabs", "severity": "low", "category": "content", "status": "deferred" }
+    { "id": "ISSUE-011", "title": "Paid Copay value blank in sidebar (paidCopay computed but not rendered)", "severity": "high", "category": "functional", "status": "fixed", "commit": "f8c7cf2" },
+    { "id": "ISSUE-012", "title": "Wrong coming-soon labels — On Demand shows 'Ondemand', YosiChat shows 'Chat'", "severity": "medium", "category": "content", "status": "fixed", "commit": "f968f78" }
   ]
 }
