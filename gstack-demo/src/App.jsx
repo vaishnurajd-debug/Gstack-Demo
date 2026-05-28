@@ -184,7 +184,7 @@ export default function App() {
 
           <div className="stat-block">
             <div className="stat-label">Paid Copay</div>
-            <div className="stat-value blue"></div>
+            <div className="stat-value blue">${paidCopay.toFixed(2)}</div>
           </div>
 
           <div className="stat-block">
